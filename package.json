@@ -1,0 +1,51 @@
+{
+  "name": "scratron",
+  "version": "0.0.1",
+  "description": "Live scratchpad for JavaScript/TypeScript.",
+  "main": "./src/main/index.js",
+  "scripts": {
+    "dev-renderer": "parcel ./src/index.html -p 9999",
+    "dev-main": "cross-env NODE_ENV=development electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polar-bears/scratron.git"
+  },
+  "keywords": [
+    "scratchpad",
+    "javascript",
+    "typescript"
+  ],
+  "author": {
+    "name": "Polar Bears",
+    "url": "https://github.com/polar-bears"
+  },
+  "contributors": [
+    "varHarrie <varharrie@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/polar-bears/scratron/issues"
+  },
+  "homepage": "https://github.com/polar-bears/scratron#readme",
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "parcel-bundler": "^1.6.2",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "@types/history": "^4.6.2",
+    "@types/react": "^16.0.41",
+    "@types/react-dom": "^16.0.4",
+    "electron": "^1.8.4",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.12.1",
+    "history": "^4.7.2",
+    "polished": "^1.9.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
