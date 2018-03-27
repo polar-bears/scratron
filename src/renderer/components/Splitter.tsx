@@ -41,9 +41,13 @@ export default class Splitter extends Base<ISplitterProps, ISplitterState> {
       return
     }
 
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges()
+    }
+
     const bodyWidth = document.body.offsetWidth
     const bodyHeight = document.body.offsetHeight
-    const xLimit = 200
+    const xLimit = 10
     const yLimit = 10
 
     let x = e.clientX
@@ -55,7 +59,7 @@ export default class Splitter extends Base<ISplitterProps, ISplitterState> {
       : x
 
     if (
-      (e.clientX <= 0 || e.clientX >= bodyWidth) ||
+      (e.clientX <= xLimit || e.clientX >= bodyWidth - xLimit) ||
       (e.clientY < yLimit || e.clientY > bodyHeight - yLimit)
     ) {
       return this.onMouseUp()

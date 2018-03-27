@@ -46,13 +46,15 @@ const Wrapper = glamorous.div({
 
 const Container = glamorous.div({
   position: 'relative',
-  flex: '1'
+  flex: '1',
+  overflow: 'hidden'
 })
 
 const StyledEditor = glamorous(Editor)({
   position: 'absolute',
   top: '0',
-  left: '0'
+  left: '0',
+  height: '100%'
 })
 
 const StyledSplitter = glamorous(Splitter)({
