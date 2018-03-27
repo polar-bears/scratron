@@ -14,6 +14,10 @@ body {
   color: ${theme.fontColor};
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 div, form, input, button, select, textarea, table, tr, td, th, ul, ol, li {
   box-sizing: border-box;
 }
