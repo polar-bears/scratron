@@ -4,8 +4,10 @@
   "description": "Live scratchpad for JavaScript/TypeScript.",
   "main": "./src/main/index.js",
   "scripts": {
-    "dev-renderer": "parcel ./src/index.html -p 9999",
-    "dev-main": "cross-env NODE_ENV=development electron ."
+    "dev-main": "cross-env NODE_ENV=development electron .",
+    "dev-renderer": "react-app-rewired start",
+    "build-renderer": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom"
   },
   "repository": {
     "type": "git",
@@ -30,22 +32,23 @@
   "homepage": "https://github.com/polar-bears/scratron#readme",
   "devDependencies": {
     "cross-env": "^5.1.4",
-    "parcel-bundler": "^1.6.2",
+    "react-app-rewire-typescript": "^2.0.2",
+    "react-app-rewired": "^1.5.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.1.0",
     "tslint-react": "^3.5.1",
     "typescript": "^2.7.2"
   },
   "dependencies": {
-    "@types/history": "^4.6.2",
     "@types/react": "^16.0.41",
     "@types/react-dom": "^16.0.4",
     "electron": "^1.8.4",
     "glamor": "^2.20.40",
     "glamorous": "^4.12.1",
-    "history": "^4.7.2",
+    "monaco-editor": "^0.11.1",
     "polished": "^1.9.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
   }
 }
