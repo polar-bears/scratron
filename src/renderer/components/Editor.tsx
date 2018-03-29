@@ -49,7 +49,7 @@ export default class Editor extends Base<IEditorProps, IEditorState> {
 
   componentDidMount () {
     if (this.editorElement) {
-      const {value = '', language = 'javascript'} = this.props
+      const {value = '', language = 'typescript'} = this.props
 
       this.initialize(this.editorElement, value, language)
     }
@@ -61,7 +61,7 @@ export default class Editor extends Base<IEditorProps, IEditorState> {
       return
     }
 
-    const {value = '', language = 'javascript', style} = this.props
+    const {value = '', language = 'typescript', style} = this.props
 
     if (value !== this.editorValue) {
       this.editorValue = value
@@ -93,7 +93,7 @@ export default class Editor extends Base<IEditorProps, IEditorState> {
       this.editorValue = editor.getValue()
 
       if (this.props.onChange) {
-        this.props.onChange(e, value)
+        this.props.onChange(e, this.editorValue)
       }
     })
   }

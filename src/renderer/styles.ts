@@ -14,7 +14,7 @@ body {
   color: ${theme.fontColor};
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, pre {
   margin: 0;
 }
 

@@ -7,7 +7,7 @@ const baseColors = {
   yellow: '#FFC41D',
   gray: '#7D7D7D',
   grayLight: '#9D9D9D',
-  grayLighter: '#F3F3F3'
+  grayLighter: '#DBDBDB'
 }
 
 const generatedColors = {

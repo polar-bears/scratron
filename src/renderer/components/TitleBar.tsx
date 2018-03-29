@@ -31,9 +31,15 @@ export default class TitleBar extends React.Component<ITitleBarProps, ITitleBarS
       return (
         <Wrapper style={{'WebkitAppRegion': 'drag'}}>
           <Actions style={{'WebkitAppRegion': 'no-drag'}}>
-            <Action colors={{hover: theme.red, active: theme.redDark}} onClick={this.onClose}/>
-            <Action colors={{hover: theme.yellow, active: theme.yellowDark}} onClick={this.onMinimize}/>
-            <Action colors={{hover: theme.green, active: theme.greenDark}} onClick={this.onMaximize}/>
+            <Action onClick={this.onClose}>
+              <CircleCloseIcon/>
+            </Action>
+            <Action onClick={this.onMinimize}>
+              <CircleMinimizeIcon/>
+            </Action>
+            <Action onClick={this.onMaximize}>
+              <CircleMaximizeIcon/>
+            </Action>
           </Actions>
           <Title>{title}</Title>
         </Wrapper>
@@ -44,9 +50,15 @@ export default class TitleBar extends React.Component<ITitleBarProps, ITitleBarS
       <Wrapper style={{'WebkitAppRegion': 'drag'}}>
         <Title>{title}</Title>
         <Actions style={{'WebkitAppRegion': 'no-drag'}}>
-          <Action colors={{hover: theme.yellow, active: theme.yellowDark}} onClick={this.onMinimize}/>
-          <Action colors={{hover: theme.green, active: theme.greenDark}} onClick={this.onMaximize}/>
-          <Action colors={{hover: theme.red, active: theme.redDark}} onClick={this.onClose}/>
+          <Action onClick={this.onMinimize}>
+            <MinimizeIcon/>
+          </Action>
+          <Action onClick={this.onMaximize}>
+            <MaximizeIcon/>
+          </Action>
+          <Action onClick={this.onClose}>
+            <CloseIcon/>
+          </Action>
         </Actions>
       </Wrapper>
     )
@@ -80,18 +92,59 @@ const Actions = glamorous.div({
   width: '56px'
 })
 
-const Action = glamorous.div<{colors: {hover: string, active: string}}>({
-  width: '12px',
+const Icon = glamorous.svg<{colors: {hover: string, active: string}}>({
   height: '12px',
-  borderRadius: '12px',
-  background: theme.grayLight,
-  cursor: 'pointer',
-  transition: 'background 0.3s'
+  width: '12px',
+  stroke: theme.grayLight,
+  strokeWidth: '1px',
+  fill: 'transparent',
+  transition: 'stroke 0.3s'
 }, (props) => ({
   ':hover': {
-    background: props.colors.hover
+    stroke: props.colors.hover
   },
   ':active': {
-    background: props.colors.active
+    stroke: props.colors.active
   }
 }))
+
+const CircleCloseIcon = () => (
+  <Icon colors={{hover: theme.red, active: theme.redDark}}>
+    <circle cx={6} cy={6} r={4}/>
+  </Icon>
+)
+
+const CircleMinimizeIcon = () => (
+  <Icon colors={{hover: theme.yellow, active: theme.yellowDark}}>
+    <circle cx={6} cy={6} r={4}/>
+  </Icon>
+)
+
+const CircleMaximizeIcon = () => (
+  <Icon colors={{hover: theme.green, active: theme.greenDark}}>
+    <circle cx={6} cy={6} r={4}/>
+  </Icon>
+)
+
+const CloseIcon = () => (
+  <Icon colors={{hover: theme.red, active: theme.redDark}}>
+    <line x1={2} y1={2} x2={10} y2={10}/>
+    <line x1={2} y1={10} x2={10} y2={2}/>
+  </Icon>
+)
+
+const MinimizeIcon = () => (
+  <Icon colors={{hover: theme.yellow, active: theme.yellowDark}}>
+    <line x1={2} y1={8} x2={10} y2={8}/>
+  </Icon>
+)
+
+const MaximizeIcon = () => (
+  <Icon colors={{hover: theme.green, active: theme.greenDark}}>
+    <rect x={2} y={2} height={8} width={8}/>
+  </Icon>
+)
+
+const Action = glamorous.div({
+  cursor: 'pointer',
+})

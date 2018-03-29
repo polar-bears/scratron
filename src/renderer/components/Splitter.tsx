@@ -93,10 +93,10 @@ const Wrapper = glamorous.div({
   position: 'absolute',
   top: '0',
   left: '50%',
+  marginLeft: '-2px',
   padding: '0 2px',
   height: '100%',
   cursor: 'ew-resize',
-  transform: 'translateX(-2px)',
   '::after': {
     display: 'block',
     content: '""',
